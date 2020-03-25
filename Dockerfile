@@ -39,6 +39,9 @@ RUN pip3 install --upgrade pip
 COPY ./requirements.txt ./requirements.txt
 RUN pip3 install -r requirements.txt
 
+# libposit deps: libmpfr, libgmp
+RUN apt install -y --no-install-recommends libmpfr-dev libgmp-dev automake
+
 ## Set up example script
 WORKDIR /root
 COPY ./tvm-custom-datatypes-notebook-example.ipynb ./tvm-custom-datatypes-notebook-example.ipynb
